@@ -91,14 +91,44 @@ namespace UniversityRegistry.Data
         /// </summary>
         public Role Role
         {
-            get { return role; }
+            get => role;
             set
             {
                 if (role == value) return;
                 role = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Role"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Role"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsUndergraduateStudent"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsGraduateStudent"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsFaculty"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsStaff"));
             }
         }
+
+        public bool IsUndergraduateStudent
+        {
+            get { return Role == Role.UndergraduateStudent; }
+            set { Role = Role.UndergraduateStudent; }
+        }
+
+        public bool IsGraduateStudent
+        {
+            get { return Role == Role.GraduateStudent; }
+            set { Role = Role.GraduateStudent; }
+        }
+
+        public bool IsFaculty
+        {
+            get { return Role == Role.Faculty; }
+            set { Role = Role.Faculty; }
+        }
+
+        public bool IsStaff
+        {
+            get { return Role == Role.Staff; }
+            set { Role = Role.Staff; }
+        }
+
 
         /// <summary>
         /// Creates a new user, assigning them an ID
